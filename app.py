@@ -1,5 +1,6 @@
 # import torch
-from ultralytics.models import YOLO, RTDETR
+# from ultralytics.models import YOLO, RTDETR
+from ultralytics import YOLO
 import streamlit as st
 from PIL import Image
 import json 
