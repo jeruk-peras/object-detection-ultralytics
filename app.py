@@ -7,8 +7,8 @@ import os
 # torch.classes.__path__ = []
 
 # classs detection
-# import model_detection
-# detektsi = model_detection.Object_Detection()
+import model_detection
+detektsi = model_detection.Object_Detection()
 
 # function
 # load model
