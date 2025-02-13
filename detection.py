@@ -60,4 +60,8 @@ for row in data:
 print(data_model)
     
     
+import sys
+sys.path.append('./ultralytics/yolo')
+
+from ultralytics.utils.checks import check_requirements
     
