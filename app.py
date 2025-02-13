@@ -1,15 +1,14 @@
 # import torch
+from ultralytics.models import YOLO, RTDETR
 import streamlit as st
 from PIL import Image
 import json 
-import os
+import os, shutil
 
 # torch.classes.__path__ = []
 
 # classs detection
 # import model_detection
-import os, shutil
-from ultralytics.models import YOLO, RTDETR
 
 class Object_Detection:
 
