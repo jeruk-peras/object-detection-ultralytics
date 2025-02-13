@@ -9,10 +9,10 @@ import os
 # classs detection
 # import model_detection
 import os, shutil
-from ultralytics import YOLO, RTDETR
+from ultralytics.models import YOLO, RTDETR
 
 class Object_Detection:
-            
+
     def __predic_img(self, img, model, model_path):
         
         # hapus data sebelumnya 
