@@ -10,16 +10,6 @@
         "model": "YOLOv11"
     },
     {
-        "model_name": "Tomato Leaf",
-        "model_path": "models/tomato_leaf_rtdetr.pt",
-        "model": "RT-DTER"
-    },
-    {
-        "model_name": "Best Tomato",
-        "model_path": "models/best_rtdetr.pt",
-        "model": "RT-DTER"
-    },
-    {
         "model_name": "Yoloversi 11",
         "model_path": "models/best_yolov11.pt",
         "model": "YOLOv11"
