@@ -166,7 +166,7 @@ else:
         os.remove(os.path.join(UPLOAD_FOLDER, upload.name))
         
         # menampilkan hasil prediksi
-        fixed = Image.open('predict/image/'+upload.name)
+        fixed = Image.open('predict/image/%d' %upload.name)
         col2.write("Predict Image :wrench:")
         col2.image(fixed)
         st.sidebar.markdown("\n")
