@@ -189,50 +189,50 @@ st.sidebar.write('---------------------------------')
 
 # upload model
 
-with st.sidebar.form('form_upload', border=False):
-    st.write('## Upload Models')
-    models = [
-        "YOLOv8",
-        "YOLOv9",
-        "YOLOv10",
-        "YOLOv11",
-        "RT-DTER",
-    ]
+# with st.sidebar.form('form_upload', border=False):
+#     st.write('## Upload Models')
+#     models = [
+#         "YOLOv8",
+#         "YOLOv9",
+#         "YOLOv10",
+#         "YOLOv11",
+#         "RT-DTER",
+#     ]
 
-    # dropdown model
-    selectmodel = st.selectbox("Select your model...",(models), index=None,placeholder="Select your model...",)
+#     # dropdown model
+#     selectmodel = st.selectbox("Select your model...",(models), index=None,placeholder="Select your model...",)
 
-    model_name = st.text_input('Model Name', placeholder='Model Name')
-    model_file = st.file_uploader("Upload an Model",)
+#     model_name = st.text_input('Model Name', placeholder='Model Name')
+#     model_file = st.file_uploader("Upload an Model",)
     
-    submitted = st.form_submit_button("Submit")
+#     submitted = st.form_submit_button("Submit")
     
-    if submitted: # jika form di submit
-        MAX_FILE_SIZE = 100 * 1024 * 1024  # 5MB
-        MODEL_FOLDER = "models/"
+#     if submitted: # jika form di submit
+#         MAX_FILE_SIZE = 100 * 1024 * 1024  # 5MB
+#         MODEL_FOLDER = "models/"
 
-        # upload model
-        def upload_model(upload, model, model_name):
-            if os.path.exists("models/"+upload.name) : # jika file sudah ada
-                st.error("File name is already. Please rename file and upload.")
-            else :
-                # upload model ke folder /models
-                filename = upload.name         
-                with open(os.path.join(MODEL_FOLDER, filename),"wb") as f: 
-                    f.write(upload.getbuffer())   
-                # simpan data model ke file models.json
-                model_save(model=model, model_path=MODEL_FOLDER+''+filename, model_name=model_name, file_type=upload.type, file_size=upload.size)
-                # informasi inteface
-                file_detail = {'model_name': model_name, 'model':model, 'file_name' : upload.name, 'file_type': upload.type, "file_size": upload.size}
-                st.write(file_detail)
-                st.success("Model Uploaded")
+#         # upload model
+#         def upload_model(upload, model, model_name):
+#             if os.path.exists("models/"+upload.name) : # jika file sudah ada
+#                 st.error("File name is already. Please rename file and upload.")
+#             else :
+#                 # upload model ke folder /models
+#                 filename = upload.name         
+#                 with open(os.path.join(MODEL_FOLDER, filename),"wb") as f: 
+#                     f.write(upload.getbuffer())   
+#                 # simpan data model ke file models.json
+#                 model_save(model=model, model_path=MODEL_FOLDER+''+filename, model_name=model_name, file_type=upload.type, file_size=upload.size)
+#                 # informasi inteface
+#                 file_detail = {'model_name': model_name, 'model':model, 'file_name' : upload.name, 'file_type': upload.type, "file_size": upload.size}
+#                 st.write(file_detail)
+#                 st.success("Model Uploaded")
             
-        if model_file is not None: # jika model belum di upload
-            if model_file.size > MAX_FILE_SIZE: # jika file terlalu besar
-                st.error("The uploaded file is too large. Please upload an image smaller than 100MB.")
-            else:
-                # upload model
-                upload_model(upload=model_file, model=selectmodel, model_name=model_name)
+#         if model_file is not None: # jika model belum di upload
+#             if model_file.size > MAX_FILE_SIZE: # jika file terlalu besar
+#                 st.error("The uploaded file is too large. Please upload an image smaller than 100MB.")
+#             else:
+#                 # upload model
+#                 upload_model(upload=model_file, model=selectmodel, model_name=model_name)
 
 # end upload model
 # end sidebar
