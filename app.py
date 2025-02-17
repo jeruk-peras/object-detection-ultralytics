@@ -124,7 +124,7 @@ if enable_camera == True :
         
 else:
     # upload gambar 
-    detect_image = st.sidebar.file_uploader("Upload an image", type=["jpeg"])
+    detect_image = st.sidebar.file_uploader("Upload an image", type=["jpg"])
     
     # deteksi gambar
     def detection(upload):
