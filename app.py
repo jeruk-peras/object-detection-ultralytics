@@ -242,11 +242,11 @@ with st.sidebar.form('form_upload', border=False):
 # dashborad
 if enable_camera is False and detect_image is None:
     col1, col2 = st.columns(2)
-    image = Image.open('demo-ori.JPG')
+    image = Image.open('demo-ori.jpg')
     col1.write("Original Image :camera:")
     col1.image(image)
 
-    fixed = Image.open('demo-pred.JPG')
+    fixed = Image.open('demo-pred.jpg')
     col2.write("Predict Image :wrench:")
     col2.image(fixed)
     
