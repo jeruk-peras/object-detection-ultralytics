@@ -189,50 +189,50 @@ st.sidebar.write('---------------------------------')
 
 # upload model
 
-with st.sidebar.form('form_upload', border=False):
-    st.write('## Upload Models')
-    models = [
-        "YOLOv8",
-        "YOLOv9",
-        "YOLOv10",
-        "YOLOv11",
-        "RT-DTER",
-    ]
+# with st.sidebar.form('form_upload', border=False):
+#     st.write('## Upload Models')
+#     models = [
+#         "YOLOv8",
+#         "YOLOv9",
+#         "YOLOv10",
+#         "YOLOv11",
+#         "RT-DTER",
+#     ]
 
-    # dropdown model
-    selectmodel = st.selectbox("Select your model...",(models), index=None,placeholder="Select your model...",)
+#     # dropdown model
+#     selectmodel = st.selectbox("Select your model...",(models), index=None,placeholder="Select your model...",)
 
-    model_name = st.text_input('Model Name', placeholder='Model Name')
-    model_file = st.file_uploader("Upload an Model",)
+#     model_name = st.text_input('Model Name', placeholder='Model Name')
+#     model_file = st.file_uploader("Upload an Model",)
     
-    submitted = st.form_submit_button("Submit")
+#     submitted = st.form_submit_button("Submit")
     
-    if submitted: # jika form di submit
-        MAX_FILE_SIZE = 100 * 1024 * 1024  # 5MB
-        MODEL_FOLDER = "models/"
+#     if submitted: # jika form di submit
+#         MAX_FILE_SIZE = 100 * 1024 * 1024  # 5MB
+#         MODEL_FOLDER = "models/"
 
-        # upload model
-        def upload_model(upload, model, model_name):
-            if os.path.exists("models/"+upload.name) : # jika file sudah ada
-                st.error("File name is already. Please rename file and upload.")
-            else :
-                # upload model ke folder /models
-                filename = upload.name         
-                with open(os.path.join(MODEL_FOLDER, filename),"wb") as f: 
-                    f.write(upload.getbuffer())   
-                # simpan data model ke file models.json
-                model_save(model=model, model_path=MODEL_FOLDER+''+filename, model_name=model_name, file_type=upload.type, file_size=upload.size)
-                # informasi inteface
-                file_detail = {'model_name': model_name, 'model':model, 'file_name' : upload.name, 'file_type': upload.type, "file_size": upload.size}
-                st.write(file_detail)
-                st.success("Model Uploaded")
+#         # upload model
+#         def upload_model(upload, model, model_name):
+#             if os.path.exists("models/"+upload.name) : # jika file sudah ada
+#                 st.error("File name is already. Please rename file and upload.")
+#             else :
+#                 # upload model ke folder /models
+#                 filename = upload.name         
+#                 with open(os.path.join(MODEL_FOLDER, filename),"wb") as f: 
+#                     f.write(upload.getbuffer())   
+#                 # simpan data model ke file models.json
+#                 model_save(model=model, model_path=MODEL_FOLDER+''+filename, model_name=model_name, file_type=upload.type, file_size=upload.size)
+#                 # informasi inteface
+#                 file_detail = {'model_name': model_name, 'model':model, 'file_name' : upload.name, 'file_type': upload.type, "file_size": upload.size}
+#                 st.write(file_detail)
+#                 st.success("Model Uploaded")
             
-        if model_file is not None: # jika model belum di upload
-            if model_file.size > MAX_FILE_SIZE: # jika file terlalu besar
-                st.error("The uploaded file is too large. Please upload an image smaller than 100MB.")
-            else:
-                # upload model
-                upload_model(upload=model_file, model=selectmodel, model_name=model_name)
+#         if model_file is not None: # jika model belum di upload
+#             if model_file.size > MAX_FILE_SIZE: # jika file terlalu besar
+#                 st.error("The uploaded file is too large. Please upload an image smaller than 100MB.")
+#             else:
+#                 # upload model
+#                 upload_model(upload=model_file, model=selectmodel, model_name=model_name)
 
 # end upload model
 # end sidebar
@@ -251,66 +251,66 @@ if enable_camera is False and detect_image is None:
     col2.image(fixed)
     
     
-    def delete_model(model_name, model, model_path):
+    # def delete_model(model_name, model, model_path):
         
-        with open('models.json', 'r') as openfile:
-            json_object = json.load(openfile)
+    #     with open('models.json', 'r') as openfile:
+    #         json_object = json.load(openfile)
     
-        model_save = []
-        for row in json_object:
+    #     model_save = []
+    #     for row in json_object:
             
-            if row['model_name'] == model_name and row['model'] == model and row['model_path'] == model_path :
+    #         if row['model_name'] == model_name and row['model'] == model and row['model_path'] == model_path :
                 
-                if os.path.exists(row['model_path']) : 
-                    os.remove(row['model_path'])
+    #             if os.path.exists(row['model_path']) : 
+    #                 os.remove(row['model_path'])
                     
-                file_detail = {'model_name': model_name, 'model':model, 'file_name' : model_path, 'file_type': row['file_type'], "file_size": row['file_size']}
-                st.write(file_detail)
-                st.success("Model Deleted")
-                continue
-            else:
-                model_save += [
-                    {
-                        "model_name": row['model_name'],
-                        "model_path": row['model_path'],
-                        "model": row['model'],
-                        "file_type": row['file_type'],
-                        "file_size": row['file_size'],
-                    }
-                ]
+    #             file_detail = {'model_name': model_name, 'model':model, 'file_name' : model_path, 'file_type': row['file_type'], "file_size": row['file_size']}
+    #             st.write(file_detail)
+    #             st.success("Model Deleted")
+    #             continue
+    #         else:
+    #             model_save += [
+    #                 {
+    #                     "model_name": row['model_name'],
+    #                     "model_path": row['model_path'],
+    #                     "model": row['model'],
+    #                     "file_type": row['file_type'],
+    #                     "file_size": row['file_size'],
+    #                 }
+    #             ]
             
-        print(model_save)
+    #     print(model_save)
 
-        json_object = json.dumps(model_save, indent=4)
-        # Writing to sample.json
-        with open("models.json", "w") as outfile:
-            outfile.write(json_object)
+    #     json_object = json.dumps(model_save, indent=4)
+    #     # Writing to sample.json
+    #     with open("models.json", "w") as outfile:
+    #         outfile.write(json_object)
             
-    st.write('## Tabel Models')
-    no, model_name, model, file_type, file_size, btn_del = st.columns([1, 3, 1, 3, 1, 1])
-    def table_models():
-        with open('models.json', 'r') as openfile:
-            json_object = json.load(openfile)
+    # st.write('## Tabel Models')
+    # no, model_name, model, file_type, file_size, btn_del = st.columns([1, 3, 1, 3, 1, 1])
+    # def table_models():
+    #     with open('models.json', 'r') as openfile:
+    #         json_object = json.load(openfile)
             
-        i = '1'
-        j = 1
-        no.write('No')
-        model_name.write("Model Name")
-        model.write('Model')
-        file_type.write('File Type')
-        file_size.write('File Size')
-        btn_del.write('act')
+    #     i = '1'
+    #     j = 1
+    #     no.write('No')
+    #     model_name.write("Model Name")
+    #     model.write('Model')
+    #     file_type.write('File Type')
+    #     file_size.write('File Size')
+    #     btn_del.write('act')
         
-        for row in json_object:
-            no.button('%d' %j, key=row['model_path']+(i+'9'), type="tertiary")
-            model_name.button(row['model_name'], key=row['model_path']+(i+'1'), type="tertiary")
-            model.button(row['model'], key=row['model_path']+(i+'2'), type="tertiary")
-            file_type.button(row['file_type'], key=row['model_path']+(i+'5'), type="tertiary")
-            file_size.button('%d' %row['file_size'], key=row['model_path']+(i+'6'), type="tertiary")
-            btn_del.button('Delete', key=row['model_path']+(i+'3'), type="tertiary", on_click= delete_model, args= [row['model_name'], row['model'], row['model_path']])
+    #     for row in json_object:
+    #         no.button('%d' %j, key=row['model_path']+(i+'9'), type="tertiary")
+    #         model_name.button(row['model_name'], key=row['model_path']+(i+'1'), type="tertiary")
+    #         model.button(row['model'], key=row['model_path']+(i+'2'), type="tertiary")
+    #         file_type.button(row['file_type'], key=row['model_path']+(i+'5'), type="tertiary")
+    #         file_size.button('%d' %row['file_size'], key=row['model_path']+(i+'6'), type="tertiary")
+    #         btn_del.button('Delete', key=row['model_path']+(i+'3'), type="tertiary", on_click= delete_model, args= [row['model_name'], row['model'], row['model_path']])
             
-            i += '1'
-            j += 1
-        # return models
+    #         i += '1'
+    #         j += 1
+    #     # return models
     
-    table_models()
+    # table_models()
