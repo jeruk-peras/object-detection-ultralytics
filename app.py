@@ -150,7 +150,7 @@ else:
         
         # deteksi gambar
         detek = detektsi.detection_img(img=file_path, conf=confidence, iou=iou, model=data['model'], model_path=data['path'])
-        print(detek[0])
+        # print(detek[0])
         # print(round(detek[0].speed['preprocess'], 1))
         # print(round(detek[0].speed['inference'], 1))
         # print(round(detek[0].speed['postprocess'], 1))
