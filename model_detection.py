@@ -1,3 +1,19 @@
+# ,
+#     {
+#         "model_name": "Tomato Leaf Disease",
+#         "model_path": "models/tomato_leaf_yolov11.pt",
+#         "model": "YOLOv11",
+#         "file_type": "application/octet-stream",
+#         "file_size": 5513043
+#     },
+#     {
+#         "model_name": "Tomato Leaf Disease",
+#         "model": "RT-DTER",
+#         "model_path": "models/tomato_leaf_rtdetr.pt",
+#         "file_type": "application/octet-stream",
+#         "file_size": 66166720
+#     }
+
 import os, shutil
 from ultralytics import YOLO, RTDETR
 
