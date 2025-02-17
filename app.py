@@ -116,7 +116,7 @@ if enable_camera == True :
             os.remove(os.path.join(UPLOAD_FOLDER, picture.name))
             
             # menampilkan hasil presiksi yang ada difolder predict/predict/
-            fixed = Image.open('predict/predict/'+picture.name)
+            fixed = Image.open('predict/image/'+picture.name)
             st.write("Predict Image :wrench:")
             st.image(fixed)
             st.markdown("\n")
