@@ -5,5 +5,21 @@
         "model": "YOLOv11",
         "file_type": "application/octet-stream",
         "file_size": 5613764
+    },
+    {
+        "model_name": "Tomato Leaf Disease",
+        "model_path": "models/best_yolov11.pt",
+        "model": "YOLOv11",
+        "file_type": "application/octet-stream",
+        "file_size": 5475795
+    },
+    {
+        "model_name": "Tomato Leaf Disease",
+        "model": "RT-DTER",
+        "model_path": "models/best_rtdetr.pt",
+        "file_type": "application/octet-stream",
+        "file_size": 66175872
+
     }
+
 ]
