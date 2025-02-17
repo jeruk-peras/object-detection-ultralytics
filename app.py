@@ -133,7 +133,7 @@ else:
         
         # meyimpan gambar ke folder uploas
         image = Image.open(upload)
-        file_path = os.path.join(UPLOAD_FOLDER, upload.name)
+        file_path = os.path.join(UPLOAD_FOLDER, 'image.jpg')
         image.save(file_path)
         
         # menampilkan gambar 
@@ -163,10 +163,10 @@ else:
         tittle.write('Speeds : Preprocess %sms, Inference %sms, Postprocess %sms' % (preprocess, inference, postprocess) )
         
         # hapus file uploads
-        os.remove(os.path.join(UPLOAD_FOLDER, upload.name))
+        os.remove(os.path.join(UPLOAD_FOLDER, 'image.jpg'))
         
         # menampilkan hasil prediksi
-        fixed = Image.open("predict/image/%s" % upload.name)
+        fixed = Image.open("predict/image/%s" % 'image.jpg')
         col2.write("Predict Image :wrench:")
         col2.image(fixed)
         st.sidebar.markdown("\n")
