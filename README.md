@@ -43,3 +43,5 @@ Jalankan aplikasi Streamlit:
 
 ![App Screenshot](https://drive.usercontent.google.com/download?id=1DcNy2V4zAWJMj2s797H1gsCv6CA0NgSh&export=view&authuser=0)
 
+![App Screenshot](![App Screenshot](https://drive.usercontent.google.com/download?id=1DcNy2V4zAWJMj2s797H1gsCv6CA0NgSh&export=view&authuser=0))
+
