@@ -17,16 +17,6 @@ Aplikasi ini menggunakan model **YOLO dari Ultralytics** untuk mendeteksi **peny
 - [Ultralytics YOLO, RTDTR](https://github.com/ultralytics/ultralytics)
 - Python 3.12
 
-## 📦 Instalasi
-
-1. **Clone repositori ini:**
-
-   ```bash
-   git clone https://github.com/username/tomato-disease-detector.git
-   cd tomato-disease-detector
-
-
-
 ## Installation
 
 Install dependensi:
