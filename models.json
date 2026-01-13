@@ -1,11 +1,11 @@
 [
-    // {
-    //     "model_name": "Default Model YOLOv11",
-    //     "model_path": "models/yolo11n.pt",
-    //     "model": "YOLOv11",
-    //     "file_type": "application/octet-stream",
-    //     "file_size": 5613764
-    // },
+     {
+         "model_name": "Default Model YOLOv11",
+         "model_path": "models/yolo11n.pt",
+         "model": "YOLOv11",
+         "file_type": "application/octet-stream",
+         "file_size": 5613764
+    },
     // {
     //     "model_name": "Tomato Leaf Disease",
     //     "model_path": "models/best_yolov11.pt",
@@ -22,3 +22,4 @@
     }
 
 ]
+
